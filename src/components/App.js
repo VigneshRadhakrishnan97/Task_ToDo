@@ -23,6 +23,17 @@ class App extends React.Component {
     }
   }
   render() {
+    let Cname = "";
+    if (
+      this.props.details &&
+      Object.values(this.props.details.edit_task).length > 0
+    ) {
+      Cname = "ui segment";
+    } else if (this.props.details && this.props.details.add === 1) {
+      Cname = "ui segment";
+    } else {
+      Cname = "ui bottom attached segment";
+    }
     return (
       <div className="ui grid">
         <div className="row">
@@ -36,14 +47,26 @@ class App extends React.Component {
               </p>
             </div>
             <Task count={this.props.details.task_list.length} />
-            <div className="ui bottom attached segment">
-              {this.props.details &&
-                Object.values(this.props.details.edit_task).length > 0 && (
+
+            {this.props.details &&
+              Object.values(this.props.details.edit_task).length > 0 && (
+                <div
+                  className="ui bottom attached segment "
+                  style={{ backgroundColor: "rgb(220, 242, 248)" }}
+                >
                   <Form />
-                )}
-              {this.props.details && this.props.details.add === 1 && (
-                <AddTask />
+                </div>
               )}
+            {this.props.details && this.props.details.add === 1 && (
+              <div
+                className="ui bottom attached segment "
+                style={{ backgroundColor: "rgb(220, 242, 248)" }}
+              >
+                <AddTask />
+              </div>
+            )}
+
+            <div className={Cname}>
               <List />
             </div>
           </div>

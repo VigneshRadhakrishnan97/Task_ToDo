@@ -40,7 +40,7 @@ class Item extends React.Component {
                 this.props.gettask(li.id);
               }}
               data-inverted=""
-              data-tooltip="Edit Task" 
+              data-tooltip="Edit Task"
             >
               <i className="fas fa-pencil-alt box"></i>
             </div>
@@ -51,7 +51,7 @@ class Item extends React.Component {
             alt={li.user_name}
           ></img>
           <div className="content">
-            <div>{this.getusername(li.assigned_user)}</div>
+            <div>{li.task_msg}</div>
             <Moment style={{ color: "red" }} format="DD/MM/YYYY">
               {li.task_date}
             </Moment>

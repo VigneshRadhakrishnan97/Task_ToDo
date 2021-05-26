@@ -209,7 +209,7 @@ class Form extends React.Component {
             </div>
           </div>
         </div>
-        <div className="ui fitted divider"></div>
+        
       </React.Fragment>
     );
   }
